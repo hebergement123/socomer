@@ -1,0 +1,149 @@
+
+
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+<head>
+<style>
+ input[type=nom] {
+  width: 100px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  text-align: center;
+  
+  box-sizing: border-box;
+  border: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  color: #000;
+}
+input[type=ss] {
+  width: 200px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  color: #000;
+}
+.aa{
+	
+	width:300px;
+  height: 60px;
+	color: #fff;
+	background: rgb(240, 191, 0);
+	
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+	z-index: 5;
+	
+	padding:9px 4px;
+
+
+}
+  .bb{
+	
+	width:200px;
+  height: 50px;
+	color: #fff;
+	background: #16324d;
+	
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+	z-index: 5;
+	
+	padding:9px 4px;
+
+
+}
+input[type=nom]:focus {
+  border-color:white;
+}
+.aa:hover{
+	color:#fff;
+	background:#333;
+}
+.bb:hover{
+	color:#fff;
+	background:#333;
+}
+</style>  
+</head>
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="bread-inner">
+                    <ul class="bread-list">
+                        <li><a href="/eshop/">Acceuil<img  style="width: 10px;" src="{%   static 'images/fleche.png'  %}"></a></li>
+                        <li ><a href="">Mes commandes</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+        <div class="container">
+        <div class="row">
+            <div class="col-12">
+               
+                    {% csrf_token %}
+                <table class="table shopping-summery">
+                    <thead>
+                        <tr class="main-hading">
+                            <th style="color:#16324d">Article</th>
+                            <th style="color:#16324d">Code article</th>
+                            <th style="color:#16324d" class="text-center">Quantité</th>
+                            <th style="color:#16324d" class="text-center">Prix TTC</th>
+                            <th style="color:#16324d" class="text-center">Date</th>
+                            <th style="color:#16324d" class="text-center">TOTAL</th> 
+                            <th  class="text-center"><img style="width: 30px;height:30px"  src="{%   static 'images/imprimante.png'  %}"></th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if  request.user %}
+                        {% for omar in cc %}
+                        {% include 'messages.html'%}
+                        <form method="post">
+                        <tr> 
+                            <td class="image" data-title="No"><img src="https://via.placeholder.com/100x100" alt="#"></td>
+                            <td>
+                            <input type="nom" class="nom" readonly id="COD_ART"name="COD_ART" value=  {{omar.COD_ART}}>
+                            </td>
+                            <td ><!-- Input Order -->
+   
+                            <input  type="nom" class="nom" readonly id="quantité" name="quantité"  value=  {{omar.quantité}}>       
+                            </td>
+                            <td class="price" data-title="Price"><input type="nom" class="nom" readonly id="prix_vente_ttc"name="prix_vente_ttc" value=  "{{omar.prix_vente_ttc}}"></td>
+                            <td> <input type="ss" class="ss" readonly id="date"name="date" value=  "{{omar.date}}"></td>
+                            <td class="total-amount" data-title="Total">  <input  type="nom" class="nom" readonly id="total" name="total"  value= {{omar.total}}></td>
+                            <td><center><div class="bb ">
+        
+                                <a  href="javascript:window.print()">Imprimer</a>
+                           
+                        </div></center></td>
+                        </tr>
+                        {% endfor %}
+                        {% endif%}
+                    </tbody>
+                </table>
+            </div>   
+            </div>
+        </div>
+        <center>
+            <div class="aa ">
+                <a  href="javascript:window.print()">Imprimer</a>
+        </div></center>
+    </div>
+</div>
+
+{%endblock%}
+
+
+

@@ -1,0 +1,43 @@
+mon fichier:C:\Users\Maalej\monprojet\test1> python manage.py runserver 
+
+our acceder a l'admin:
+1/python manage.py migrate
+2/python manage.py createsuperuser
+3/py manage.py runserver
+username:rahma
+mail:maalejrahmaa@gmail.com
+md:rahma123
+DATABASES = {
+  'default': {
+       'ENGINE': 'django.db.backends.sqlite3',
+       'NAME': BASE_DIR / 'db.sqlite3',
+   }
+}
+******instalation django:
+1/pip install django
+2/django-admin startprojcet mysite
+3/django-admin startapp hello_world
+(dossier hello_world eli fih migrations)
+4/on a jour 'hello_word' le nom de fichier au settings /installed apps (hello_word je peux la remplacer par produit ou client ou commande)
+easy php:
+https://www.lesdeveloppeurs.net/Telechargements-EasyPHP-12.1_with_PHP-5.4.6-setup.exe-248-phpsql
+kol mnaaml models naaml migrations wbaad migrate
+
+
+******base******
+
+1/python manage.py inspectdb > models.py(baad manesaa base wles donees)
+2/python manage.py makemigrations
+3/python manage.py migrate
+bulma pour desgin bulma.io
+
+
+
+**********rechercher********
+1/pip install django_filter
+
+*********page inscription********
+1/python manage.py startapp (ism ex :compte)
+===>fichier compte sera ajouté sur le dossier de travail
+2/on ajoute compte dans settings/installed_apps
+3/on cree un dossier compte sous templates pour mettre les pages HTML
