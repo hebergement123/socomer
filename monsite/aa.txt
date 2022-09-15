@@ -1,0 +1,27 @@
+<html>
+<head>
+<script type="text/javascript">
+function setInputText()
+{
+var mylist=document.getElementById("myList" )
+document.getElementById("txt" ).value=mylist.options[mylist.selectedIndex].text
+document.getElementById("num" ).value=mylist.options[mylist.selectedIndex].value
+document.getElementById("name" ).value=mylist.options[mylist.selectedIndex].label
+}
+</script>
+</head>
+<body>
+<form>
+Select option:
+<select id="myList" onchange="setInputText()">
+  <option value="1" label="lab1">txt1</option>
+  <option value="2" label="lab2">txt2</option>
+  <option value="3" label="lab3">txt3</option>
+</select>
+<br />The text is: <input type="text" id="txt" size="20">
+<br />The value is: <input type="text" id="num" size="20">
+<br />The name is: <input type="text" id="name" size="20">
+
+</form>
+</body>
+</html>
